@@ -1,0 +1,48 @@
+<!--
+  @file    : 01_Hello_Vue.html
+  @author  : KeeneChen
+  @date    : 2023.06.20-17:13:51
+  @details : 01_Hello_Vue
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 导入TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 导入Vue3 -->
+    <!-- <script src="https://unpkg.com/browse/vue@3.3.4/dist/vue.global.js"></script> -->
+  </head>
+
+  <body>
+    <div id="app" class="text-3xl font-bold underline italic text-clifford">
+      {{ message }}
+    </div>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: '#da373d',
+            },
+          },
+        },
+      };
+    </script>
+    <script type="module">
+      // import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+      import { createApp } from '../lib/vue.esm-browser.js';
+
+      createApp({
+        data() {
+          return {
+            message: 'Hello Vue!',
+          };
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>
