@@ -1,0 +1,40 @@
+<!--
+  @file    : 12_列表渲染指令.html
+  @author  : KeeneChen
+  @date    : 2023.06.20-22:35:43
+  @details : 12_列表渲染指令
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue3 列表渲染指令</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="(user, i) in list">索引是：{{i}}，姓名是：{{user.name}}</li>
+      </ul>
+    </div>
+
+    <script type="module">
+      import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+
+      createApp({
+        data() {
+          return {
+            // 用户列表的数据
+            list: [
+              { id: 1, name: 'zs' },
+              { id: 2, name: 'ls' },
+              { name: 'ww' },
+            ],
+          };
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

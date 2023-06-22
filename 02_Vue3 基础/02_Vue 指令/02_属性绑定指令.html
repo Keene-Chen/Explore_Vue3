@@ -1,0 +1,50 @@
+<!--
+  @file    : 02_属性绑定指令.html
+  @author  : KeeneChen
+  @date    : 2023.06.20-19:15:03
+  @details : 02_属性绑定指令
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue3属性绑定指令</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 1.v-bind -->
+      <a v-bind:href="name">KeeneChen</a>
+      <hr />
+      <!-- 2.v-bind 简写 -->
+      <a :href="name">KeeneChen</a>
+      <hr />
+      <!-- 3.布尔类型 Attribute -->
+      <!-- 当 isActive 为真值或一个空字符串 (即 <button disabled="">) 时，元素会包含这个 disabled attribute。而当其为其他假值时 attribute 将被忽略。 -->
+      <button :disabled="isActive">button 激活状态</button>
+      <hr />
+      <!-- 4.动态绑定多个 Attribute -->
+      <div v-bind="objectOfAttrs">动态绑定</div>
+    </div>
+
+    <script type="module">
+      import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+      const app = createApp({
+        data() {
+          return {
+            name: 'https://cn.vuejs.org/guide/essentials/template-syntax.html',
+            isActive: true,
+            objectOfAttrs: {
+              id: 'app',
+              class: 'container',
+              style: 'color: red',
+            },
+          };
+        },
+      });
+      app.mount('#app');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!--
+  @file    : 08_双向绑定指令.html
+  @author  : KeeneChen
+  @date    : 2023.06.20-21:36:15
+  @details : 08_双向绑定指令
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue3 双向绑定指令</title>
+  </head>
+
+  <body>
+    <!-- 注意：v-model 指令只能配合表单元素一起使用！ -->
+    <div id="app">
+      <p>用户名是：{{username}}</p>
+      <input type="text" v-model="username" />
+      <p>选中的省份是：{{province}}</p>
+      <select v-model="province">
+        <option value="">请选择</option>
+        <option value="1">北京</option>
+        <option value="2">上海</option>
+        <option value="3">广州</option>
+        <option value="4">深圳</option>
+      </select>
+    </div>
+
+    <script type="module">
+      import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+      const app = createApp({
+        data() {
+          return {
+            // 姓名
+            username: 'zs',
+            // 省份
+            province: '1',
+          };
+        },
+      });
+      app.mount('#app');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!--
+  @file    : 14_v-for 遍历对象.html
+  @author  : KeeneChen
+  @date    : 2023.06.21-14:44:54
+  @details : 14_v-for 遍历对象
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>v-for 遍历对象</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <ul>
+        <!-- v-for 遍历对象属性时第一个参数为值、第二个为key、第三个为index -->
+        <li v-for="(value,key,index) in myObject">
+          {{index}}.{{key}} : {{value}}
+        </li>
+        <!-- 在 v-for 里使用范围值
+        v-for 可以直接接受一个整数值。在这种用例中，会将该模板基于 1...n 的取值范围重复多次。
+        -->
+        <li v-for="n in 10">
+          <span>{{n}}</span>
+        </li>
+      </ul>
+    </div>
+
+    <script type="module">
+      import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+
+      createApp({
+        data() {
+          return {
+            myObject: {
+              title: 'How to do lists in Vue',
+              author: 'Jane Doe',
+              publishedAt: '2016-04-10',
+            },
+          };
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!--
+  @file    : 10_条件渲染指令.html
+  @author  : KeeneChen
+  @date    : 2023.06.20-22:21:55
+  @details : 10_条件渲染指令
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue3 条件渲染指令</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <button @click="flag = !flag">Toggle Flag</button>
+
+      <p v-if="flag">请求成功 --- 被 v-if 控制</p>
+      <p v-show="flag">请求成功 --- 被 v-show 控制</p>
+    </div>
+
+    <script type="module">
+      import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+
+      /**
+       * v-if 和 v-show 的区别
+       * 实现原理不同：
+       * v-if 指令会动态地创建或移除 DOM 元素，从而控制元素在页面上的显示与隐藏；
+       * v-show 指令会动态为元素添加或移除 style="display: none;" 样式，从而控制元素的显示与隐藏；
+       * 性能消耗不同：
+       * v-if 有更高的切换开销，而 v-show 有更高的初始渲染开销。
+       * 如果需要非常频繁地切换，则使用 v-show 较好
+       * 如果在运行时条件很少改变，则使用 v-if 较好
+       */
+      const app = createApp({
+        data() {
+          return {
+            // flag 用来控制元素的显示与隐藏
+            // 值为 true 时显示元素
+            // 值为 false 时隐藏元素
+            flag: false,
+          };
+        },
+      });
+      app.mount('#app');
+    </script>
+  </body>
+</html>

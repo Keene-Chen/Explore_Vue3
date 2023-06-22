@@ -1,0 +1,38 @@
+<!--
+  @file    : 01_内容渲染指令.html
+  @author  : KeeneChen
+  @date    : 2023.06.20-19:14:52
+  @details : 01_内容渲染指令
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue3内容渲染指令</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 1.文本插值 -->
+      <h2>{{name}}</h2>
+      <!-- 2.原始HTML -->
+      <h2 v-text="html"></h2>
+      <h2 v-html="html"></h2>
+    </div>
+
+    <script type="module">
+      import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+      const app = createApp({
+        data() {
+          return {
+            name: 'KeeneChen',
+            html: '<span style="color:red">KeeneChen</span>',
+          };
+        },
+      });
+      app.mount('#app');
+    </script>
+  </body>
+</html>

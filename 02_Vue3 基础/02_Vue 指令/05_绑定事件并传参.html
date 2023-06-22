@@ -1,0 +1,42 @@
+<!--
+  @file    : 05_绑定事件并传参.html
+  @author  : KeeneChen
+  @date    : 2023.06.20-20:06:38
+  @details : 05_绑定事件并传参
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>绑定事件并传参</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <button @click="addCount(2,$event)">count is: {{ count }}</button>
+    </div>
+
+    <script type="module">
+      import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+      const app = createApp({
+        data() {
+          return {
+            count: 0,
+          };
+        },
+        methods: {
+          // 点击按钮，让 count 自增 +step
+          // 事件处理函数中，可以通过$event获取到事件对象
+          addCount(step, e) {
+            const nowBgColor = e.target.style.backgroundColor;
+            e.target.style.backgroundColor = nowBgColor === 'red' ? '' : 'red';
+            this.count += step;
+          },
+        },
+      });
+      app.mount('#app');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!--
+  @file    : 11_v-else 与 v-else-if 指令.html
+  @author  : KeeneChen
+  @date    : 2023.06.20-22:30:27
+  @details : 11_v-else 与 v-else-if 指令
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>v-else 与 v-else-if 指令</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <p v-if="num > 0.5">随机数 ＞ 0.5</p>
+      <p v-else>随机数 <= 0.5</p>
+      <hr />
+      <p v-if="type==='A'">类型为 A</p>
+      <p v-else-if="type==='B'">类型为 B</p>
+      <p v-else-if="type==='C'">类型为 C</p>
+      <p v-else>类型为 D</p>
+    </div>
+
+    <script type="module">
+      import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+
+      const app = createApp({
+        data() {
+          return {
+            num: Math.random(),
+            type: 'A',
+          };
+        },
+      });
+      app.mount('#app');
+    </script>
+  </body>
+</html>
