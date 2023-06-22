@@ -1,0 +1,49 @@
+<!--
+  @file    : 03_demo_count.html
+  @author  : KeeneChen
+  @date    : 2023.06.20-17:22:25
+  @details : 03_demo_count
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="importmap">
+      {
+        "imports": {
+          "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="app">
+      <button @click="count++">count is: {{ count }}</button>
+    </div>
+    <div id="app2">{{message}}</div>
+    <script type="module">
+      import { createApp } from 'vue';
+      // 一个createApp函数，用于创建一个Vue应用,返回一个应用实例，可以通过mount方法挂载到页面上。同时也被称为根组件。
+      const app = createApp({
+        data() {
+          return {
+            count: 0,
+          };
+        },
+      });
+      app.mount('#app');
+      const app2 = createApp({
+        data() {
+          return {
+            message: 'Hello Vue!',
+          };
+        },
+      });
+      app2.mount('#app2');
+    </script>
+  </body>
+</html>
