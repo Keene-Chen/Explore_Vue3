@@ -1,0 +1,48 @@
+<!--
+  @file    : 06_事件修饰符.html
+  @author  : KeeneChen
+  @date    : 2023.06.20-20:15:53
+  @details : 06_事件修饰符
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件修饰符</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <a href="http://www.baidu.com" @click.prevent="onLinkClick">百度首页</a>
+    </div>
+
+    <script type="module">
+      import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+
+      /**
+       * 在事件处理函数中调用 preventDefault() 或 stopPropagation() 是非常常见的需求。
+       * 因此，vue 提供了事件修饰符的概念，来辅助程序员更方便的对事件的触发进行控制。
+       * .prevent 阻止默认行为（例如：阻止 a 连接的跳转、阻止表单的提交等）
+       * .stop 阻止事件冒泡
+       * .capture 以捕获模式触发当前的事件处理函数
+       * .once 绑定的事件只触发1次
+       * .self 只有在 event.target 是当前元素自身时触发事件处理函数
+       */
+      const app = createApp({
+        data() {
+          return {
+            count: 0,
+          };
+        },
+        methods: {
+          onLinkClick(e) {
+            console.log('onLinkClick', e);
+          },
+        },
+      });
+      app.mount('#app');
+    </script>
+  </body>
+</html>

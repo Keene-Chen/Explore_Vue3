@@ -1,0 +1,59 @@
+<!--
+  @file    : 13_v-for key.html
+  @author  : KeeneChen
+  @date    : 2023.06.21-14:39:08
+  @details : 13_v-for key
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue3 列表渲染指令</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <div>
+        <input type="text" v-model="name" />
+        <button @click="addNewUser">添加</button>
+      </div>
+      <ul>
+        <!-- 绑定key属性可以保证列表状态不会紊乱 -->
+        <li v-for="(user, index) in userlist" :key="user.id">
+          <input type="checkbox" />
+          姓名：{{user.name}}
+        </li>
+      </ul>
+    </div>
+
+    <script type="module">
+      import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+
+      createApp({
+        data() {
+          return {
+            // 用户列表
+            userlist: [
+              { id: 1, name: 'zs' },
+              { id: 2, name: 'ls' },
+            ],
+            // 输入的用户名
+            name: '',
+            // 下一个可用的 id 值
+            nextId: 3,
+          };
+        },
+        methods: {
+          // 点击了添加按钮
+          addNewUser() {
+            this.userlist.unshift({ id: this.nextId, name: this.name });
+            this.name = '';
+            this.nextId++;
+          },
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

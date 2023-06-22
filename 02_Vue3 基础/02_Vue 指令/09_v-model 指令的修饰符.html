@@ -1,0 +1,50 @@
+<!--
+  @file    : 09_v-model指令的修饰符.html
+  @author  : KeeneChen
+  @date    : 2023.06.20-22:16:24
+  @details : 09_v-model指令的修饰符
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue3 双向绑定指令</title>
+  </head>
+
+  <body>
+    <div id="app">
+      姓名：<input type="text" v-model.trim="username" />
+      <hr />
+      年龄：<input type="text" v-model.number="age" />
+      <hr />
+      地址：<input type="text" v-model.lazy="address" />
+    </div>
+
+    <script type="module">
+      import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+
+      /**
+       * 使用浏览器插件Vue devtools查看效果
+       * 为了方便对用户输入的内容进行处理，vue 为 v-model 指令提供了 3 个修饰符
+       * number 自动将用户的输入值转为数值类型
+       * .trim 自动过滤用户输入的首尾空白字符
+       * .lazy 在“change”时而非“input”时更新
+       */
+      const app = createApp({
+        data() {
+          return {
+            // 姓名
+            username: 'zs',
+            // 年龄
+            age: 1,
+            // 地址
+            address: '北京市',
+          };
+        },
+      });
+      app.mount('#app');
+    </script>
+  </body>
+</html>

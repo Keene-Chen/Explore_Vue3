@@ -1,0 +1,36 @@
+<!--
+  @file    : 03_事件绑定指令.html
+  @author  : KeeneChen
+  @date    : 2023.06.20-19:23:12
+  @details : 03_事件绑定指令
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue3事件绑定指令</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 语法格式为:v-on:事件名称="事件处理函数" -->
+      <button v-on:click="count++">count is: {{ count }}</button>
+      <br />
+      <!-- v-on简写形式:@ -->
+      <button @click="count++">count is: {{ count }}</button>
+    </div>
+    <script type="module">
+      import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+      const app = createApp({
+        data() {
+          return {
+            count: 0,
+          };
+        },
+      });
+      app.mount('#app');
+    </script>
+  </body>
+</html>
