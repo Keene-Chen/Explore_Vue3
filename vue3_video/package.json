@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "dplayer": "^1.27.1",
+    "hls.js": "^1.5.1",
     "mpegts.js": "^1.7.3",
     "vue": "^3.3.11"
   },
   "devDependencies": {
+    "@types/node": "^20.11.0",
     "@vitejs/plugin-vue": "^4.5.2",
     "typescript": "^5.2.2",
     "vite": "^5.0.8",
