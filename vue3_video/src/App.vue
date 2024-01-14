@@ -1,88 +1,52 @@
-<script setup lang="ts">
-  import mpegts from 'mpegts.js';
-  import { onMounted, ref } from 'vue';
+<script lang="ts" setup>
+import { defineAsyncComponent } from 'vue';
 
-  const videoElement = ref<HTMLVideoElement | null>(null);
-  const flvPlayer = ref<mpegts.Player | undefined>();
-  const flvPlayerVolume = ref<number>(0);
-
-  const createVideo = () => {
-    if (mpegts.isSupported() && videoElement.value) {
-      flvPlayer.value = mpegts.createPlayer({
-        type: 'flv',
-        url: 'https://sdk-release.qnsdk.com/1080_60_5390.mp4', // 你的url地址
-        isLive: false,
-        hasAudio: true,
-        hasVideo: true,
-      });
-
-      flvPlayer.value.attachMediaElement(videoElement.value);
-      flvPlayer.value.load();
-      setTimeout(() => {
-        if (flvPlayer.value) {
-          flvPlayer.value.play();
-          flvPlayer.value.muted = false;
-          flvPlayerVolume.value = flvPlayer.value.volume;
-        }
-      }, 300);
-      flvPlayer.value.on('error', () => console.error('视频加载失败，请稍候重试！'));
-    }
-  };
-
-  const destroy = () => {
-    if (flvPlayer.value) {
-      flvPlayer.value.pause();
-      flvPlayer.value.unload();
-    }
-  };
-
-  defineExpose({ destroy });
-
-  const handleVolume = (increase: boolean) => {
-    if (videoElement.value) {
-      const currentVolume = videoElement.value.volume;
-
-      // 如果音量已经是最大且试图增加，或者音量是最小且试图减少，则不执行操作
-      if ((increase && currentVolume >= 1) || (!increase && currentVolume <= 0)) {
-        console.log('音量已经是最大或最小了');
-        return;
-      }
-
-      let newVolume = currentVolume + (increase ? 0.05 : -0.05);
-      newVolume = Math.min(Math.max(newVolume, 0), 1); // 确保音量在0到1之间
-      videoElement.value.volume = Number(newVolume.toFixed(2)); // 四舍五入到小数点后两位
-      flvPlayerVolume.value = videoElement.value.volume;
-      console.log(videoElement.value.volume);
-    }
-  };
-
-  onMounted(() => {
-    createVideo();
-  });
+const MpegtsjsVideo = defineAsyncComponent(() => import('./components/MpegtsjsVideo.vue'));
+const DplayerVideo = defineAsyncComponent(() => import('./components/DplayerVideo.vue'));
 </script>
 
 <template>
-  <div class="videoBox">
-    <video
-      ref="videoElement"
-      controls
-      autoplay
-      muted
-      style="width: 800px; height: 400px; object-fit: fill"
-    ></video>
+  <div class="demo-video">
+    <div class="item"><MpegtsjsVideo /></div>
+    <div class="item"><MpegtsjsVideo /></div>
+    <div class="item"><MpegtsjsVideo /></div>
+    <div class="item"><DplayerVideo /></div>
+    <div class="item"><DplayerVideo /></div>
+    <div class="item"><DplayerVideo /></div>
+    <div class="item"><DplayerVideo /></div>
+    <div class="item"><DplayerVideo /></div>
+    <div class="item"><DplayerVideo /></div>
   </div>
-  <div>{{ flvPlayerVolume }}</div>
-  <button @click="handleVolume(true)">+</button>
-  <button @click="handleVolume(false)">-</button>
 </template>
 
 <style scoped>
-  body {
-    margin: 0;
-    padding: 0;
-  }
-  .videoBox {
-    width: 100%;
-    height: 100%;
-  }
+.demo-video {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.item {
+  width: calc(100% / 3);
+  height: calc(100% / 3);
+  background-color: #000;
+  box-sizing: border-box;
+  border: 1px solid #865b5b;
+}
+
+.item:nth-child(4),
+.item:nth-child(5),
+.item:nth-child(6) {
+  border-top: none;
+  border-bottom: none;
+}
+
+.item:nth-child(3n + 2) {
+  border-left: none;
+  border-right: none;
+}
+
 </style>
