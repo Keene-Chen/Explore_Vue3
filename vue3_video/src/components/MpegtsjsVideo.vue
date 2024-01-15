@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import mpegts from 'mpegts.js';
 import { onMounted, ref } from 'vue';
+import dataSrc from '../assets/videoSource.json';
 
 const videoElement = ref<HTMLVideoElement | null>(null);
 const flvPlayer = ref<mpegts.Player | undefined>();
@@ -9,9 +10,8 @@ const flvPlayerVolume = ref<number>(0);
 const createVideo = () => {
   if (mpegts.isSupported() && videoElement.value) {
     flvPlayer.value = mpegts.createPlayer({
-      type: 'flv',
-      // url: 'https://sdk-release.qnsdk.com/1080_60_5390.mp4',
-      url: '',
+      type: 'mp4',
+      url: dataSrc.video[0].url,
       isLive: false,
       hasAudio: true,
       hasVideo: true,
