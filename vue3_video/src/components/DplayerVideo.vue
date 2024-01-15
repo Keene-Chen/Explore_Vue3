@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import dataSrc from '../assets/videoSource.json';
 import DPlayer from 'dplayer';
 import Hls from 'hls.js';
 import { onMounted, ref } from 'vue';
@@ -10,7 +11,7 @@ const dplayer = ref();
 const initPlayer = () => {
   dp = new DPlayer({
     container: dplayer.value,
-    autoplay: false,
+    autoplay: true,
     theme: 'green',
     loop: true,
     lang: 'zh-cn',
@@ -19,11 +20,10 @@ const initPlayer = () => {
     preload: 'auto',
     volume: 0.5,
     mutex: false,
-    logo: 'https://i.loli.net/2019/06/06/5cf8c5d94521136430.png',
+    // logo: 'https://i.loli.net/2019/06/06/5cf8c5d94521136430.png',
     video: {
-      // url: 'https://gcalic.v.myalicdn.com/gc/wgw05_1/index.m3u8?contentid=2820180516001',
-      url: '',
-      type: 'customHls',
+      url: dataSrc.video[0].url,
+      type: 'auto',
       customType: {
         customHls: (video: any, player: any) => {
           // console.log('查看传递的参数', video, player);

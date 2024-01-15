@@ -1,0 +1,22 @@
+{
+  "logo": [
+    {
+      "origin": "dplayer",
+      "url": "https://i.loli.net/2019/06/06/5cf8c5d94521136430.png"
+    }
+  ],
+  "video": [
+    {
+      "origin": "bing",
+      "url": "https://prod-streaming-video-msn-com.akamaized.net/9752d732-2354-483f-a678-a6d0cd2c22b7/1a5ed13a-43f5-4e85-95c8-6579065c4d7c.mp4"
+    },
+    {
+      "origin": "直播源",
+      "url": "https: //gcalic.v.myalicdn.com/gc/wgw05_1/index.m3u8?contentid=2820180516001"
+    },
+    {
+      "origin": "直播源2",
+      "url": "https://sdk-release.qnsdk.com/1080_60_5390.mp4"
+    }
+  ]
+}
