@@ -13,7 +13,7 @@ export default defineConfig({
     hmr: true,
     proxy: {
       '^/api': 'http://localhost:8888',
-      '^/chart': 'http://localhost:8888/mock',
+      '^/mock': 'http://localhost:8888/mock',
     },
   },
   resolve: {
