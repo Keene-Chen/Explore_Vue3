@@ -12,7 +12,8 @@ export default defineConfig({
     cors: true,
     hmr: true,
     proxy: {
-      '^/api/mock': 'http://localhost:8888',
+      '^/api': 'http://localhost:8888',
+      '^/chart': 'http://localhost:8888/mock',
     },
   },
   resolve: {
