@@ -2,7 +2,7 @@ import Mock from 'mockjs';
 import { defineMock } from 'vite-plugin-mock-dev-server';
 
 export default defineMock({
-  url: '/chart/test',
+  url: '/mock/chart/test',
   enabled: true,
   status: 200,
   statusText: 'OK',
