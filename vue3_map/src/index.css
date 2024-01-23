@@ -1,0 +1,21 @@
+:root {
+  margin: 0;
+  padding: 0;
+  background: #1e1e1e;
+  color: #ccc;
+}
+
+button {
+  background: #1e1e1e;
+  color: #ccc;
+  border: 1px solid #ccc;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background: #ccc;
+  color: #1e1e1e;
+}
