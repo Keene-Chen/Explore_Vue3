@@ -20,6 +20,11 @@ const router = createRouter({
       name: 'lucide',
       component: () => import('@/views/LucideIconView.vue'),
     },
+    {
+      path: '/404',
+      name: '404',
+      component: () => import('@/views/error/404View.vue'),
+    },
   ],
 });
 
