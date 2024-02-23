@@ -10,15 +10,15 @@
   },
   "dependencies": {
     "dplayer": "^1.27.1",
-    "hls.js": "^1.5.1",
+    "hls.js": "^1.5.6",
     "mpegts.js": "^1.7.3",
-    "vue": "^3.3.11"
+    "vue": "^3.4.19"
   },
   "devDependencies": {
-    "@types/node": "^20.11.0",
-    "@vitejs/plugin-vue": "^4.5.2",
-    "typescript": "^5.2.2",
-    "vite": "^5.0.8",
-    "vue-tsc": "^1.8.25"
+    "@types/node": "^20.11.20",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "typescript": "^5.3.3",
+    "vite": "^5.1.4",
+    "vue-tsc": "^1.8.27"
   }
 }
