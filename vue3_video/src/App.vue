@@ -3,6 +3,7 @@ import { defineAsyncComponent } from 'vue';
 
 const MpegtsjsVideo = defineAsyncComponent(() => import('./components/MpegtsjsVideo.vue'));
 const DplayerVideo = defineAsyncComponent(() => import('./components/DplayerVideo.vue'));
+const ArtplayerVideo = defineAsyncComponent(() => import('./components/ArtPlayerVideo.vue'));
 </script>
 
 <template>
@@ -13,9 +14,9 @@ const DplayerVideo = defineAsyncComponent(() => import('./components/DplayerVide
     <div class="item"><DplayerVideo /></div>
     <div class="item"><DplayerVideo /></div>
     <div class="item"><DplayerVideo /></div>
-    <div class="item"><DplayerVideo /></div>
-    <div class="item"><DplayerVideo /></div>
-    <div class="item"><DplayerVideo /></div>
+    <div class="item"><ArtplayerVideo /></div>
+    <div class="item"><ArtplayerVideo /></div>
+    <div class="item"><ArtplayerVideo /></div>
   </div>
 </template>
 
@@ -48,5 +49,4 @@ const DplayerVideo = defineAsyncComponent(() => import('./components/DplayerVide
   border-left: none;
   border-right: none;
 }
-
 </style>
