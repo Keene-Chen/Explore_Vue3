@@ -6,6 +6,23 @@
       "url": "https://i.loli.net/2019/06/06/5cf8c5d94521136430.png"
     }
   ],
+  "playerIcons": [
+    {
+      "origin": "artplayer",
+      "type": "gif",
+      "url": "https://artplayer.org/assets/img/ploading.gif"
+    },
+    {
+      "origin": "artplayer",
+      "type": "svg",
+      "url": "https://artplayer.org/assets/img/state.svg"
+    },
+    {
+      "origin": "artplayer",
+      "type": "svg",
+      "url": "https://artplayer.org/assets/img/indicator.svg"
+    }
+  ],
   "video": [
     {
       "origin": "bing",
