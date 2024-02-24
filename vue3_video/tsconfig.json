@@ -20,7 +20,23 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    /* Alias */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*",
+      ],
+      "@views/*": [
+        "src/views/*",
+      ],
+      "@components/*": [
+        "src/components/*",
+      ],
+    },
+    "types": [
+      "naive-ui/volar"
+    ]
   },
   "include": [
     "src/**/*.ts",
