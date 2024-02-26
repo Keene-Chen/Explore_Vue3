@@ -3,11 +3,15 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 const routes = [
   {
     path: '/',
-    component: () => import('@/views/home/HomeIndexView.vue'),
+    component: () => import('@/views/home/Index.vue'),
   },
   {
     path: '/artplayer',
     component: () => import('@/views/artplayer/Index.vue'),
+  },
+  {
+    path: '/dplayer',
+    component: () => import('@/views/dplayer/Index.vue'),
   },
   {
     path: '/404',

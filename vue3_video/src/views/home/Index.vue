@@ -9,6 +9,7 @@ import { NButton, NLayout, NLayoutContent, NLayoutFooter, NLayoutHeader, NSpace 
       <n-layout-header bordered>
         <n-button quaternary type="primary" @click="router.push('/')">首页</n-button>
         <n-button quaternary type="primary" @click="router.push('/artplayer')"> artplayer </n-button>
+        <n-button quaternary type="primary" @click="router.push('/dplayer')"> dplayer </n-button>
         <n-button quaternary type="primary" @click="router.push('/404')">按钮</n-button>
       </n-layout-header>
       <n-layout-content>sss </n-layout-content>
