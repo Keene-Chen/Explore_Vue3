@@ -8,11 +8,11 @@ let art: Artplayer;
 
 const initPlayer = () => {
   art = new Artplayer({
-    container: artRef.value as HTMLDivElement,
+    container: artRef.value,
     url: videoSource.video[3].url,
     mutex: false,
     autoSize: false,
-    autoplay: true,
+    autoplay: false,
     screenshot: true,
     theme: '#57AFEF',
     fullscreen: true,
@@ -76,17 +76,17 @@ const initPlayer = () => {
     layers: [
       {
         name: 'potser',
-        html: `<img style="width: 100px" src="/assets/sample/layer.png">`,
+        html: `<img style="width: 100px" src="https://artplayer.org/assets/sample/layer.png">`,
         tooltip: 'Potser Tip',
         style: {
           position: 'absolute',
           top: '50px',
           right: '50px',
         },
-        click: function (...args) {
+        click: (...args) => {
           console.info('click', args);
         },
-        mounted: function (...args) {
+        mounted: (...args) => {
           console.info('mounted', args);
         },
       },

@@ -13,7 +13,7 @@ const initPlayer = () => {
     url: videoSource.video[3].url,
     mutex: false,
     autoSize: false,
-    autoplay: true,
+    autoplay: false,
     screenshot: true,
     theme: '#57AFEF',
     fullscreen: true,
