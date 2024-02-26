@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import dataSrc from '../assets/videoSource.json';
+import videoSource from '@/assets/videoSource.json';
 import DPlayer from 'dplayer';
 import Hls from 'hls.js';
-import { onMounted, ref } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 
 let dp: any = null;
 const dplayer = ref();
@@ -13,16 +13,17 @@ const initPlayer = () => {
     container: dplayer.value,
     autoplay: true,
     theme: 'green',
-    loop: true,
+    live: true,
+    loop: false,
     lang: 'zh-cn',
-    screenshot: true,
-    hotkey: true,
+    screenshot: false,
+    hotkey: false,
     preload: 'auto',
     volume: 0.5,
     mutex: false,
     // logo: 'https://i.loli.net/2019/06/06/5cf8c5d94521136430.png',
     video: {
-      url: dataSrc.video[0].url,
+      url: videoSource.video[0].url,
       type: 'auto',
       customType: {
         customHls: (video: any, player: any) => {
@@ -33,23 +34,17 @@ const initPlayer = () => {
         },
       },
     },
-    contextmenu: [
-      {
-        text: 'custom1',
-        link: 'https://github.com/DIYgod/DPlayer',
-      },
-      {
-        text: 'custom2',
-        click: (player: any) => {
-          console.log(player);
-        },
-      },
-    ],
   });
 };
 
 onMounted(() => {
   initPlayer();
+});
+
+onUnmounted(() => {
+  if (dp) {
+    dp.destroy();
+  }
 });
 </script>
 

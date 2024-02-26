@@ -1,3 +1,3 @@
 /// <reference types="vite/client" />
 declare module 'dplayer';
-declare module 'hls.js'
+declare module 'hls.js';

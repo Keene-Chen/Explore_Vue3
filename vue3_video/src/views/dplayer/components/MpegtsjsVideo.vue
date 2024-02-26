@@ -1,7 +1,7 @@
-<script setup lang="ts">
+<script lang="ts" setup>
+import videoSource from '@/assets/videoSource.json';
 import mpegts from 'mpegts.js';
 import { onMounted, ref } from 'vue';
-import dataSrc from '../assets/videoSource.json';
 
 const videoElement = ref<HTMLVideoElement | null>(null);
 const flvPlayer = ref<mpegts.Player | undefined>();
@@ -11,7 +11,7 @@ const createVideo = () => {
   if (mpegts.isSupported() && videoElement.value) {
     flvPlayer.value = mpegts.createPlayer({
       type: 'mp4',
-      url: dataSrc.video[0].url,
+      url: videoSource.video[0].url,
       isLive: false,
       hasAudio: true,
       hasVideo: true,
@@ -64,16 +64,11 @@ onMounted(() => {
 
 <template>
   <div class="video-warp">
-    <video
-      ref="videoElement"
-      controls
-      muted
-      style="width: 100%; height: 100%; object-fit: fill"
-    ></video>
+    <video ref="videoElement" controls muted style="width: 100%; height: 100%; object-fit: fill"></video>
   </div>
-  <div>{{ flvPlayerVolume }}</div>
+  <!-- <div>{{ flvPlayerVolume }}</div>
   <button @click="handleVolume(true)">+</button>
-  <button @click="handleVolume(false)">-</button>
+  <button @click="handleVolume(false)">-</button> -->
 </template>
 
 <style scoped>
