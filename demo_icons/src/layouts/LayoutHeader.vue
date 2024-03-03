@@ -1,26 +1,36 @@
 <script lang="ts" setup>
 import router from '@/router/index';
 import { Moon, Sun } from 'lucide-vue-next';
+import { useLoadingBar } from 'naive-ui';
 import { ref } from 'vue';
 
+const loadingBar = useLoadingBar();
 const theme = ref('dark');
 
 const toggleTheme = () => {
   theme.value = theme.value === 'dark' ? 'light' : 'dark';
 };
+
+const handleRouter = (path: string) => {
+  loadingBar.start();
+  setTimeout(() => {
+    router.push(path);
+    loadingBar.finish();
+  }, 0);
+};
 </script>
 
 <template>
   <n-layout-header position="absolute" bordered>
-    <n-grid :x-gap="12"  :cols="12">
+    <n-grid :x-gap="12" :cols="12">
       <n-gi>
-        <n-button @click="router.push('/')">home</n-button>
+        <n-button @click="handleRouter('/')">home</n-button>
       </n-gi>
       <n-gi>
-        <n-button @click="router.push('/lucide')">lucide</n-button>
+        <n-button @click="handleRouter('/lucide')">lucide</n-button>
       </n-gi>
       <n-gi :offset="8">
-        <n-switch v-model:value="theme" size="medium">
+        <n-switch size="medium" @update:value="toggleTheme">
           <template #checked-icon>
             <n-icon :component="Moon" />
           </template>

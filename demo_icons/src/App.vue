@@ -5,8 +5,10 @@ import { RouterView } from 'vue-router';
 
 <template>
   <n-config-provider :theme="darkTheme">
-    <n-message-provider>
-      <RouterView />
-    </n-message-provider>
+    <n-loading-bar-provider>
+      <n-message-provider>
+        <RouterView />
+      </n-message-provider>
+    </n-loading-bar-provider>
   </n-config-provider>
 </template>
