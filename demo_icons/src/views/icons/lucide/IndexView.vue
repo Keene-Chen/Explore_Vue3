@@ -3,6 +3,8 @@ import * as icons from 'lucide-vue-next';
 import { useMessage } from 'naive-ui';
 import { computed, reactive, ref } from 'vue';
 
+const message = useMessage();
+
 const iconObj = reactive({
   size: 24,
   color: '#E8E8E8',
@@ -32,9 +34,10 @@ const iconList = computed(() => {
 
 const handleCopy = async (name: string) => {
   try {
-    await navigator.clipboard.writeText(name);
-    console.log(`Copied: ${name}`);
-    useMessage().warning(`Copied: ${name}`);
+    // 将所有非字母数字字符转换为短横线，并转为小写
+    const transformedText = name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
+    await navigator.clipboard.writeText(transformedText);
+    message.success(`Copied: ${transformedText}`);
   } catch (err) {
     console.error('Failed to copy text: ', err);
   }
