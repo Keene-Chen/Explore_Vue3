@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
   {
@@ -14,13 +14,17 @@ const routes = [
     component: () => import('@/views/dplayer/Index.vue'),
   },
   {
+    path: '/cropper',
+    component: () => import('@/views/cropper/Index.vue'),
+  },
+  {
     path: '/404',
     component: () => import('@/views/error/404View.vue'),
   },
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes,
 });
 
