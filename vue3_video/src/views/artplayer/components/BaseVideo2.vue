@@ -1,32 +1,31 @@
 <script lang="ts" setup>
-import videoSource from '@/assets/videoSource.json';
-import Artplayer from 'artplayer';
-import { onMounted, onUnmounted, ref } from 'vue';
+import videoSource from '@/assets/videoSource.json'
+import Artplayer from 'artplayer'
+import { onMounted, onUnmounted, ref } from 'vue'
 
-const artRef = ref();
-let art: Artplayer;
+const artRef = ref()
+let art: Artplayer
 
 const initPlayer = () => {
   art = new Artplayer({
     container: artRef.value,
     url: videoSource.video[3].url,
     theme: '#57AFEF',
-  });
-};
+  })
+}
 
 onMounted(() => {
-  initPlayer();
-});
+  initPlayer()
+})
 
 onUnmounted(() => {
-  if (art) {
-    art.destroy();
-  }
-});
+  if (art)
+    art.destroy()
+})
 </script>
 
 <template>
-  <div ref="artRef" class="container-wrap"></div>
+  <div ref="artRef" class="container-wrap" />
 </template>
 
 <style scoped>

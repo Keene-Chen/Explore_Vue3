@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import Artplayer from 'artplayer';
-import type { Option } from 'artplayer/types/option';
-import { onMounted, ref } from 'vue';
+import Artplayer from 'artplayer'
+import type { Option } from 'artplayer/types/option'
+import { onMounted, ref } from 'vue'
 
-const artRef = ref();
-let art: Artplayer;
+const artRef = ref()
+let art: Artplayer
 
 const option: Option = {
   container: artRef.value as HTMLDivElement,
@@ -13,7 +13,7 @@ const option: Option = {
   autoSize: false,
   autoplay: true,
   screenshot: true,
-};
+}
 
 const initPlayer = () => {
   art = new Artplayer({
@@ -26,7 +26,6 @@ const initPlayer = () => {
     theme: '#57AFEF',
     fullscreen: true,
     fullscreenWeb: true,
-
 
     setting: true,
     flip: true,
@@ -50,10 +49,10 @@ const initPlayer = () => {
             url: '/assets/sample/subtitle.srt?id=2',
           },
         ],
-        onSelect: function (item, $dom, event) {
-          console.info(item, $dom, event);
-          art.subtitle.url = item.url;
-          return item.html;
+        onSelect(item, $dom, event) {
+          console.info(item, $dom, event)
+          art.subtitle.url = item.url
+          return item.html
         },
       },
       {
@@ -75,10 +74,10 @@ const initPlayer = () => {
             url: '/assets/sample/video.mp4?id=360',
           },
         ],
-        onSelect: function (item, $dom, event) {
-          console.info(item, $dom, event);
-          art.switchQuality(item.url, item.html);
-          return item.html;
+        onSelect(item, $dom, event) {
+          console.info(item, $dom, event)
+          art.switchQuality(item.url, item.html)
+          return item.html
         },
       },
     ],
@@ -93,24 +92,24 @@ const initPlayer = () => {
           top: '50px',
           right: '50px',
         },
-        click: function (...args) {
-          console.info('click', args);
+        click(...args) {
+          console.info('click', args)
         },
-        mounted: function (...args) {
-          console.info('mounted', args);
+        mounted(...args) {
+          console.info('mounted', args)
         },
       },
     ],
-  });
-};
+  })
+}
 
 onMounted(() => {
-  initPlayer();
-});
+  initPlayer()
+})
 </script>
 
 <template>
-  <div ref="artRef" class="video-wrap"></div>
+  <div ref="artRef" class="video-wrap" />
 </template>
 
 <style scoped>

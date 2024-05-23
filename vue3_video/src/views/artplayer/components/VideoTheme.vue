@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import videoSource from '@/assets/videoSource.json';
-import Artplayer from 'artplayer';
-import { onMounted, onUnmounted, ref } from 'vue';
+import videoSource from '@/assets/videoSource.json'
+import Artplayer from 'artplayer'
+import { onMounted, onUnmounted, ref } from 'vue'
 
-const artRef = ref();
-let art: Artplayer;
+const artRef = ref()
+let art: Artplayer
 
 const initPlayer = () => {
   art = new Artplayer({
@@ -76,22 +76,21 @@ const initPlayer = () => {
       airplay:
         '<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiPjxwYXRoIGQ9Ik01IDE3SDRhMiAyIDAgMCAxLTItMlY1YTIgMiAwIDAgMSAyLTJoMTZhMiAyIDAgMCAxIDIgMnYxMGEyIDIgMCAwIDEtMiAyaC0xIi8+PHBhdGggZD0ibTEyIDE1bDUgNkg3eiIvPjwvZz48L3N2Zz4=">',
     },
-  });
-};
+  })
+}
 
 onMounted(() => {
-  initPlayer();
-});
+  initPlayer()
+})
 
 onUnmounted(() => {
-  if (art) {
-    art.destroy();
-  }
-});
+  if (art)
+    art.destroy()
+})
 </script>
 
 <template>
-  <div ref="artRef" class="container-wrap"></div>
+  <div ref="artRef" class="container-wrap" />
 </template>
 
 <style scoped>

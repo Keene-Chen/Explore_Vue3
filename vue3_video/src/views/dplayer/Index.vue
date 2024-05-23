@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { DplayerVideo, LiveVideo, MpegtsjsVideo } from './components/videoCompnent';
+import { DplayerVideo, LiveVideo, MpegtsjsVideo } from './components/videoCompnent'
 
 const videoCompnents = [
   {
@@ -38,7 +38,7 @@ const videoCompnents = [
     name: 'DplayerVideo',
     component: DplayerVideo,
   },
-];
+]
 </script>
 
 <template>

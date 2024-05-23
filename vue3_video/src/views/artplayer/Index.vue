@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { NBadge, NGi, NGrid, NSpace } from 'naive-ui';
-import { BaseVideo, BaseVideo2, Flv, LiveVideo, M3U8, Video2, Video3, VideoTheme } from './components/videoCompnent';
+import { NBadge, NGi, NGrid, NSpace } from 'naive-ui'
+import { BaseVideo, BaseVideo2, Flv, LiveVideo, M3U8, Video2, Video3, VideoTheme } from './components/videoCompnent'
 
 // 定义组件数组
 const components = [
@@ -15,7 +15,7 @@ const components = [
   { id: 9, name: 'VideoTheme', component: VideoTheme },
   { id: 10, name: 'VideoTheme', component: VideoTheme },
   { id: 11, name: 'VideoTheme', component: VideoTheme },
-];
+]
 </script>
 
 <template>

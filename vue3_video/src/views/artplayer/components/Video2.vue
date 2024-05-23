@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import videoSource from '@/assets/videoSource.json';
-import Artplayer from 'artplayer';
-import type { Option } from 'artplayer/types/option';
-import { onMounted, onUnmounted, ref } from 'vue';
+import videoSource from '@/assets/videoSource.json'
+import Artplayer from 'artplayer'
+import type { Option } from 'artplayer/types/option'
+import { onMounted, onUnmounted, ref } from 'vue'
 
-const artRef = ref<HTMLDivElement | null>(null);
-let art: Artplayer;
+const artRef = ref<HTMLDivElement | null>(null)
+let art: Artplayer
 
 const initPlayer = () => {
   const option: Option = {
@@ -29,24 +29,23 @@ const initPlayer = () => {
       state: `<img src="${videoSource.playerIcons[1].url}">`,
       indicator: `<img src="${videoSource.playerIcons[2].url}">`,
     },
-  };
+  }
 
-  art = new Artplayer(option);
-};
+  art = new Artplayer(option)
+}
 
 onMounted(() => {
-  initPlayer();
-});
+  initPlayer()
+})
 
 onUnmounted(() => {
-  if (art) {
-    art.destroy();
-  }
-});
+  if (art)
+    art.destroy()
+})
 </script>
 
 <template>
-  <div ref="artRef" class="container-wrap"></div>
+  <div ref="artRef" class="container-wrap" />
 </template>
 
 <style scoped>

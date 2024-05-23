@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import videoSource from '@/assets/videoSource.json';
-import Artplayer from 'artplayer';
-import { onMounted, ref } from 'vue';
+import videoSource from '@/assets/videoSource.json'
+import Artplayer from 'artplayer'
+import { onMounted, ref } from 'vue'
 
-const artRef = ref();
-let art: Artplayer;
+const artRef = ref()
+let art: Artplayer
 
 const initPlayer = () => {
   art = new Artplayer({
@@ -40,10 +40,10 @@ const initPlayer = () => {
             url: '/assets/sample/subtitle.srt?id=2',
           },
         ],
-        onSelect: function (item, $dom, event) {
-          console.info(item, $dom, event);
-          art.subtitle.url = item.url;
-          return item.html;
+        onSelect(item, $dom, event) {
+          console.info(item, $dom, event)
+          art.subtitle.url = item.url
+          return item.html
         },
       },
       {
@@ -65,10 +65,10 @@ const initPlayer = () => {
             url: '/assets/sample/video.mp4?id=360',
           },
         ],
-        onSelect: function (item, $dom, event) {
-          console.info(item, $dom, event);
-          art.switchQuality(item.url);
-          return item.html;
+        onSelect(item, $dom, event) {
+          console.info(item, $dom, event)
+          art.switchQuality(item.url)
+          return item.html
         },
       },
     ],
@@ -84,23 +84,23 @@ const initPlayer = () => {
           right: '50px',
         },
         click: (...args) => {
-          console.info('click', args);
+          console.info('click', args)
         },
         mounted: (...args) => {
-          console.info('mounted', args);
+          console.info('mounted', args)
         },
       },
     ],
-  });
-};
+  })
+}
 
 onMounted(() => {
-  initPlayer();
-});
+  initPlayer()
+})
 </script>
 
 <template>
-  <div ref="artRef" class="container-wrap"></div>
+  <div ref="artRef" class="container-wrap" />
 </template>
 
 <style scoped>

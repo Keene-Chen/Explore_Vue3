@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import videoSource from '@/assets/videoSource.json';
-import DPlayer from 'dplayer';
-import Hls from 'hls.js';
-import { onMounted, onUnmounted, ref } from 'vue';
+import videoSource from '@/assets/videoSource.json'
+import DPlayer from 'dplayer'
+import Hls from 'hls.js'
+import { onMounted, onUnmounted, ref } from 'vue'
 
-let dp: any = null;
-const dplayer = ref();
+let dp: any = null
+const dplayer = ref()
 
 // 初始化播放器
 const initPlayer = () => {
@@ -28,28 +28,27 @@ const initPlayer = () => {
       customType: {
         customHls: (video: any, player: any) => {
           // console.log('查看传递的参数', video, player);
-          const hls = new Hls();
-          hls.loadSource(video.src);
-          hls.attachMedia(video);
+          const hls = new Hls()
+          hls.loadSource(video.src)
+          hls.attachMedia(video)
         },
       },
     },
-  });
-};
+  })
+}
 
 onMounted(() => {
-  initPlayer();
-});
+  initPlayer()
+})
 
 onUnmounted(() => {
-  if (dp) {
-    dp.destroy();
-  }
-});
+  if (dp)
+    dp.destroy()
+})
 </script>
 
 <template>
-  <div ref="dplayer" class="video-warp"></div>
+  <div ref="dplayer" class="video-warp" />
 </template>
 
 <style scoped>

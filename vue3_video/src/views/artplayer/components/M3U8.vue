@@ -1,28 +1,31 @@
 <script lang="ts" setup>
-import videoSource from '@/assets/videoSource.json';
-import Artplayer from 'artplayer';
-import type { Option } from 'artplayer/types/option';
-import Hls from 'hls.js';
-import { onMounted, onUnmounted, ref } from 'vue';
+import videoSource from '@/assets/videoSource.json'
+import Artplayer from 'artplayer'
+import type { Option } from 'artplayer/types/option'
+import Hls from 'hls.js'
+import { onMounted, onUnmounted, ref } from 'vue'
 
-const artRef = ref<HTMLDivElement | null>(null);
-let art: Artplayer;
-const videoUrl = videoSource.video.filter(videoItem => videoItem.type === 'm3u8').map(videoItem => videoItem.url);
+const artRef = ref<HTMLDivElement | null>(null)
+let art: Artplayer
+const videoUrl = videoSource.video.filter(videoItem => videoItem.type === 'm3u8').map(videoItem => videoItem.url)
 
 const playM3u8 = (video, url, art) => {
   if (Hls.isSupported()) {
-    if (art.hls) art.hls.destroy();
-    const hls = new Hls();
-    hls.loadSource(url);
-    hls.attachMedia(video);
-    art.hls = hls;
-    art.on('destroy', () => hls.destroy());
-  } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-    video.src = url;
-  } else {
-    art.notice.show = 'Unsupported playback format: m3u8';
+    if (art.hls)
+      art.hls.destroy()
+    const hls = new Hls()
+    hls.loadSource(url)
+    hls.attachMedia(video)
+    art.hls = hls
+    art.on('destroy', () => hls.destroy())
   }
-};
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = url
+  }
+  else {
+    art.notice.show = 'Unsupported playback format: m3u8'
+  }
+}
 
 const initPlayer = () => {
   const option: Option = {
@@ -51,28 +54,27 @@ const initPlayer = () => {
     customType: {
       m3u8: playM3u8,
     },
-  };
+  }
 
-  art = new Artplayer(option);
+  art = new Artplayer(option)
 
   art.on('ready', () => {
-    console.info(art.hls);
-  });
-};
+    console.info(art.hls)
+  })
+}
 
 onMounted(() => {
-  initPlayer();
-});
+  initPlayer()
+})
 
 onUnmounted(() => {
-  if (art) {
-    art.destroy();
-  }
-});
+  if (art)
+    art.destroy()
+})
 </script>
 
 <template>
-  <div ref="artRef" class="container-wrap"></div>
+  <div ref="artRef" class="container-wrap" />
 </template>
 
 <style scoped>
